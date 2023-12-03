@@ -38,7 +38,7 @@ function App() {
   //console.log(ppfFutureValue)
   return (
     <div> 
-      <div className="flex flex-row px-4  gap-4 m-4">
+      <div className="flex flex-col sm:flex-row px-4  gap-4 m-4">
         <div className="basis-1/2">
           <YearlyInvesment amount={amount} setAmount={setAmount}/>
           <YearInput year={year} setYear={setYear}/>
@@ -47,7 +47,7 @@ function App() {
         <div className="basis-1/2 grid items-center"><div className=" h-80 justify-self-center"><DonutChart ppfAmount={ppfAmount} setPPFAmount={setPPFAmount} /></div></div>
         
       </div>
-        <div className='bg-slate-700 m-4 flex justify-evenly text-white rounded-lg'>
+        <div className='bg-slate-700 m-4 flex flex-col sm:flex-row justify-evenly text-white rounded-lg'>
           <div className='m-4'>
             Invested Amount: {localCurrency(ppfAmount.investedAmount)}
           </div>
