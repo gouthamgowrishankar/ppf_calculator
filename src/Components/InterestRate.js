@@ -1,5 +1,4 @@
 import React from 'react'
-import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 const InterestRate = () => {
