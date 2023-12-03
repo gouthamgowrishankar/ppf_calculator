@@ -9,7 +9,7 @@ const YearlyInvesment = ({amount,setAmount}) => {
     <div className="flex flex-row p-4">
       <div className="basis-1/2">Yearly Investment</div>
       <div className="basis-1/2">
-        <OutlinedInput type='number' onInput={(e)=> ((parseInt(e.target.value))<150001)?setAmount(e.target.value):setAmount(150000)} value={amount} inputProps={{max: 150000,min:0}} id="standard-adornment-amount" startAdornment={<InputAdornment position='start' type='string'>₹</InputAdornment>}/>
+        <OutlinedInput type='number' onInput={(e)=> ((parseInt(e.target.value))<150001)?setAmount(e.target.value):setAmount(500)} value={amount} inputProps={{max: 150000,min:0}} id="standard-adornment-amount" startAdornment={<InputAdornment position='start' type='string'>₹</InputAdornment>}/>
       </div>
   </div>
   <div className='p-4'>

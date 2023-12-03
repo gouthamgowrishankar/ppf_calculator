@@ -1,18 +1,19 @@
-import React from 'react'
+import {React} from 'react'
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DonutChart = () => {
+const DonutChart = ({ppfAmount, setPPFAmount}) => {
+  console.log('chartlog', ppfAmount)
     const data = {
         labels: [
           'Invested Amount',
           'Expected Return'
         ],
         datasets: [{
-          label: 'My First Dataset',
-          data: [ 50, 50],
+          label: 'ppf investment',
+          data: [ ppfAmount.investedAmount,ppfAmount.increasedAmount],
           backgroundColor: [
             'rgb(255, 205, 86)','rgb(54, 162, 235)'
           ],
