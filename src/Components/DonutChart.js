@@ -5,7 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DonutChart = ({ppfAmount, setPPFAmount}) => {
-  console.log('chartlog', ppfAmount)
+  //console.log('chartlog', ppfAmount)
     const data = {
         labels: [
           'Invested Amount',

@@ -10,10 +10,10 @@ function App() {
   
   
   const ppfFutureValue = (principal, rate, years) =>{
-    console.log(principal,rate,years)
+    //console.log(principal,rate,years)
     // Convert the annual interest rate to a decimal
     const i = rate / 100;
-    console.log(Math.pow(1 + i, years))
+    //console.log(Math.pow(1 + i, years))
     // Calculate the future value
     const futureValue = principal * ((Math.pow(1 + i, years) - 1) / i);
     const totalAmount = parseInt(futureValue.toFixed(2));
@@ -26,8 +26,14 @@ function App() {
   const [ppfAmount,setPPFAmount] = useState(ppfFutureValue(amount,7.1,year))
   useEffect(() =>{ 
     setPPFAmount( ppfFutureValue(amount,7.1,year));
-    console.log("effect taking place")}
+    //console.log("effect taking place")
+  }
   , [amount,year]);
+  const localCurrency=(amount)=> amount.toLocaleString('en-IN', {
+    maximumFractionDigits: 2,
+    style: 'currency',
+    currency: 'INR'
+})
   
   //console.log(ppfFutureValue)
   return (
@@ -41,13 +47,15 @@ function App() {
         <div className="basis-1/2 grid items-center"><div className=" h-80 justify-self-center"><DonutChart ppfAmount={ppfAmount} setPPFAmount={setPPFAmount} /></div></div>
         
       </div>
-        <div className='bg-slate-700 m-4 flex justify-center text-white rounded-lg'>
+        <div className='bg-slate-700 m-4 flex justify-evenly text-white rounded-lg'>
           <div className='m-4'>
-            Maturity Amount {(ppfAmount.totalAmount).toLocaleString('en-IN', {
-                                                  maximumFractionDigits: 2,
-                                                  style: 'currency',
-                                                  currency: 'INR'
-                                              })}
+            Invested Amount: {localCurrency(ppfAmount.investedAmount)}
+          </div>
+          <div className='m-4'>
+            Total Interest: {localCurrency(ppfAmount.increasedAmount)}
+          </div>
+          <div className='m-4'>
+            Maturity Amount {localCurrency(ppfAmount.totalAmount)}
           </div>
         </div>
     </div> 
